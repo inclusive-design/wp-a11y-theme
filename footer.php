@@ -6,23 +6,31 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
- * @package _s
+ * @package a11y
  */
 
 ?>
+            <svg id="sidebar-graphic" preserveAspectRatio="xMidYMid meet" >
+                <use xlink:href="<?php bloginfo('template_url');?>/images/sidebar-graphic-01.svg#Layer_1" />
+            </svg>
+        </main>
+    </div><!-- #content -->
 
-	</div><!-- #content -->
+    <footer class="small-12 columns site-footer text-center" role="contentinfo">
 
-	<footer id="colophon" class="site-footer" role="contentinfo">
-		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', '_s' ) ); ?>"><?php printf( esc_html__( 'Proudly powered by %s', '_s' ), 'WordPress' ); ?></a>
-			<span class="sep"> | </span>
-			<?php printf( esc_html__( 'Theme: %1$s by %2$s.', '_s' ), '_s', '<a href="https://automattic.com/" rel="designer">Automattic</a>' ); ?>
-		</div><!-- .site-info -->
-	</footer><!-- #colophon -->
+
+        <div class="site-info">
+            <a href="<?php echo esc_url( __( 'https://floeproject.org/') ); ?>"><?php printf( esc_html__( 'Accessible Theme by %s', 'a11y' ), 'The FLOE Project' ); ?></a>
+        </div><!-- .site-info -->
+    </footer><!-- #colophon -->
 </div><!-- #page -->
 
 <?php wp_footer(); ?>
 
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(document).foundation();
+    });
+</script>
 </body>
 </html>

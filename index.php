@@ -9,48 +9,50 @@
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package _s
+ * @package a11y
  */
 
 get_header(); ?>
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
+    <main class="small-12 columns">
+    <?php
+    if ( have_posts() ) :
 
-		<?php
-		if ( have_posts() ) :
+        if ( is_home() && ! is_front_page() ) : ?>
+            <h1><?php single_post_title(); ?></h1>
+        <?php
+        elseif (is_home() && is_front_page() ) : {
+            // insert the blog description on the front page.
+            $description = get_bloginfo( 'description', 'display' );
+            if ( $description || is_customize_preview() ) : ?>
+                <p class="a11y-site-description"><?php echo $description; /* WPCS: xss ok. */ ?></p>
+            <?php
+            endif;
+        }
+        endif;
+        ?>
+        <section class="row">
+        <?php
+        /* Start the Loop */
+        while ( have_posts() ) : the_post();
 
-			if ( is_home() && ! is_front_page() ) : ?>
-				<header>
-					<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
-				</header>
+            /*
+             * Include the Post-Format-specific template for the content.
+             * If you want to override this in a child theme, then include a file
+             * called content-___.php (where ___ is the Post Format name) and that will be used instead.
+             */
+            get_template_part( 'template-parts/content', get_post_format() );
 
-			<?php
-			endif;
+        endwhile;
+        ?>
+        </section>
+        <?php
+        the_posts_navigation();
 
-			/* Start the Loop */
-			while ( have_posts() ) : the_post();
+    else :
 
-				/*
-				 * Include the Post-Format-specific template for the content.
-				 * If you want to override this in a child theme, then include a file
-				 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-				 */
-				get_template_part( 'template-parts/content', get_post_format() );
+        get_template_part( 'template-parts/content', 'none' );
 
-			endwhile;
-
-			the_posts_navigation();
-
-		else :
-
-			get_template_part( 'template-parts/content', 'none' );
-
-		endif; ?>
-
-		</main><!-- #main -->
-	</div><!-- #primary -->
-
+    endif; ?>
 <?php
-get_sidebar();
 get_footer();

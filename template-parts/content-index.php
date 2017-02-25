@@ -9,7 +9,14 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class();?>>
+<article id="post-<?php the_ID(); ?>"
+    <?php
+    if ( ! is_single() ) :
+        post_class('small-12 medium-4 columns');
+    else :
+        post_class();
+    endif;
+    ?>>
     <header class="a11y-entry-header">
         <?php
         if ( is_single() ) :

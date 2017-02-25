@@ -1,0 +1,466 @@
+/*!
+Theme Name: a11y
+Theme URI: http://example.com/
+Author: Floe Project
+Author URI: http://floeproject.org/
+Description: Accessible theme <code>a11y</code>
+Version: 0.0.1
+License:
+License URI:
+Text Domain: a11y
+Tags: accessibility
+*/
+
+@font-face {
+    font-family: "OpenSans";
+    src: url("fonts/OpenSans-Regular.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "RobotoSlab";
+    src: url("fonts/RobotoSlab-Regular.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Muli";
+    src: url("fonts/Muli-Regular.ttf") format("truetype");
+}
+
+primary-font ?=  "Muli", Arial, Helvetica;
+header-font ?= "Muli";
+header-color ?= #7A2344;
+button-focus ?= 0.2rem solid #0000CB;
+
+body-background ?= #fff;
+
+/* Masthead colours */
+masthead-background ?= #fff;
+masthead-color ?= #0F1C22;
+masthead-color-hover ?= #fff;
+masthead-background-hover ?= #0F1C22;
+masthead-border ?= 0.8rem solid #0C303B;
+
+main-nav-link-color ?= #0F1C22;
+main-nav-link-color-hover ?= #fff;
+main-nav-link-background-hover ?= #0F1C22;
+main-nav-link-focus ?= 0.2rem solid #0F1C22;
+
+/* Sidebar */
+sidebar-color ?= #fff;
+sidebar-background ?= #116172;
+sidebar-link-color ?= #fff;
+sidebar-link-background-hover ?= #fff;
+sidebar-link-color-hover ?= #116172;
+sidebar-link-focus ?= 0.2rem solid #fff;
+
+/* Front Main Content Area */
+front-main-content-link-color ?= #116172;
+front-main-content-link-hover-background ?= #116172;
+front-main-content-link-hover ?= #fff;
+front-main-content-link-focus ?= 0.2rem solid #116172;
+
+/* Main Content Area for all other pages */
+main-content-border ?= 1.6rem solid #ECEDED;
+main-content-background ?= #fff;
+
+/* Front Page Panels */
+front-panel-container-background ?= #ECEDED;
+front-panel-background ?= #fff;
+
+/* Skip Links */
+skip-color ?= #00444D;
+skip-background ?= #C5E0C5;
+skip-focus-outer-border ?= #00444D;
+skip-focus-inner-border ?= #C5E0C5;
+skip-hover-color ?= #C5E0C5;
+skip-hover-background ?= #00444D;
+
+/* Front Page Footer */
+front-footer-background ?= #116172;
+front-footer-color ?= #fff;
+front-footer-link-color ?= #fff;
+front-footer-link-hover-background ?= #fff;
+front-footer-link-hover ?= #116172;
+front-footer-link-focus ?= 0.2rem solid #fff;
+
+/* Sub Page Footer */
+footer-background ?= #0C303B;
+footer-color ?= #fff;
+footer-link-color ?= #fff;
+footer-link-hover-background ?= #fff;
+footer-link-hover ?= #0C303B;
+footer-link-focus ?= 0.2rem solid #fff;
+
+/* Site description */
+site-description-color ?= #fff;
+
+/* General styles */
+html {
+    font-size: 16px;
+}
+
+body.a11y-theme {
+    font-family: primary-font;
+    background-color: body-background;
+}
+
+.a11y-theme {
+    h1, h2, h3 {
+        font-family: header-font;
+        color: header-color;
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+}
+
+.a11y-site {
+    overflow-x: hidden;
+}
+
+#skip {
+    float: left;
+    height: 0rem;
+}
+
+#skip a {
+    color: skip-color;
+    background: skip-background;
+
+    &, &:hover, &:visited {
+        height: 1px;
+        left: -10000px;
+        overflow: hidden;
+        position: absolute;
+        top: auto;
+        width: 1px;
+        color: skip-hover-color;
+        background: skip-hover-background;
+    }
+
+    &:active, &:focus {
+        height: auto;
+        width: auto;
+        left: auto;
+        border: 0.5rem solid skip-focus-inner-border;
+        outline: 0.2rem solid skip-focus-outer-border;
+        color: skip-hover-color;
+        background: skip-hover-background;
+        padding: 1rem;
+        z-index: 1;
+    }
+}
+
+/*
+UI Options.
+*/
+.a11y-theme .fl-panelBar {
+    flex-flow: row wrap;
+    display: flex;
+    justify-content: flex-end;
+    background-color: inherit;
+    border-bottom: none;
+}
+
+.a11y-site-header {
+    background-color: masthead-background;
+    margin-bottom: 1rem;
+    h1 {
+        font-weight: bold;
+        margin: 0;
+        display: inline-block;
+        text-transform: none;
+        font-size: 1.7rem;
+    }
+
+    h1 a {
+        color: masthead-color;
+
+        &:hover {
+            background: masthead-background-hover;
+            color: masthead-color-hover;
+        }
+    }
+
+    nav {
+        padding: 0;
+    }
+}
+
+#logo {
+    width: 3rem;
+    height: 3rem;
+}
+
+#corner-flourish {
+    display: none;
+}
+
+
+/*
+Navigation.
+*/
+.a11y-main-nav {
+    width: 100%;
+
+    ul {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+    li {
+        width: 100%;
+        border-left: 0.1rem solid masthead-color;
+    }
+
+    ul a {
+        width: 100%;
+        display: inline-block;
+        color: main-nav-link-color;
+        text-transform: uppercase;
+
+        &:hover {
+            background-color: main-nav-link-background-hover;
+            color: main-nav-link-color-hover;
+        }
+
+        &:focus {
+            outline: main-nav-link-focus;
+        }
+    }
+}
+
+// Main - Front Page
+.a11y-theme.home main {
+    background-color: front-main-content-background;
+
+    a {
+        color: front-main-content-link-color;
+        text-decoration: underline;
+
+        &:hover {
+            color: front-main-content-link-hover;
+            background-color: front-main-content-link-hover-background;
+        }
+
+        &:focus {
+            outline: front-main-content-link-focus;
+        }
+    }
+
+    /* Site Description */
+    .a11y-site-description {
+        min-height: 15rem;
+        background-color: #273842;
+
+        /*
+        The site description is treated specially. It bleeds over the padding of
+        the <main> container to the edges of the screen. To do this, the
+        description is floated and expanded to stretch outside the visible screen.
+        */
+        margin: 0 -10rem;
+        padding: 3rem 10rem 3rem 10rem;
+        font-size: 1.2rem;
+        color: site-description-color;
+    }
+    // overflow: hidden;
+}
+
+// Main - All other pages.
+.a11y-theme.category,
+.a11y-theme.single {
+    main {
+        border: none;
+        background: main-content-background;
+        padding: 1.6rem;
+
+        h1 {
+            margin-top: 0;
+        }
+    }
+}
+
+.a11y-panel-container {
+    padding: 1rem 2rem;
+    background-color: front-panel-container-background;
+}
+
+.a11y-front-panel {
+    background-color: front-panel-background;
+    border: 1rem solid front-panel-container-background;
+    &.columns {
+        padding: 0;
+    }
+
+    h1 {
+        font-size: 1.2rem;
+    }
+
+    h1, section {
+        padding: 0.5rem 1.5rem;
+    }
+}
+
+#sidebar-graphic {
+    display: none;
+}
+
+// Sidebar
+.a11y-theme aside {
+    color: sidebar-color;
+    background-color: sidebar-background;
+    padding: 1rem 1.6rem;
+
+    ul {
+        list-style: none;
+        margin: 0;
+    }
+
+     li {
+     }
+
+    .a11y-sidebar-current:before {
+        content: "\25B6";
+    }
+
+    .a11y-sidebar-category-link {
+        text-transform: uppercase;
+    }
+
+    a {
+        color: sidebar-link-color;
+        padding: 0.4rem;
+        margin-bottom: 0.2rem;
+        width: 100%;
+        display: inline-block;
+
+        &:hover {
+            background-color: sidebar-link-background-hover;
+            color: sidebar-link-color-hover;
+        }
+
+        &:focus {
+            outline: sidebar-link-focus;
+        }
+    }
+
+    h1, h2, h3 {
+        color: sidebar-color;
+        font-size: 1.2rem;
+    }
+}
+
+// Footer
+.a11y-theme footer {
+    padding: 1rem;
+    min-height: 6rem;
+    background-color: footer-background;
+
+    a {
+        color: footer-link-color;
+        &:hover {
+            background-color: footer-link-hover-background
+            color: footer-link-hover;
+        }
+
+        &:focus {
+            outline: footer-link-focus;
+        }
+    }
+}
+
+.home footer {
+    background-color: front-footer-background;
+
+    a{
+        &:hover {
+            background-color: front-footer-link-hover-background
+            color: front-footer-link-hover;
+        }
+
+        &:focus {
+            outline: front-footer-link-focus;
+        }
+    }
+
+}
+
+// Medium and larger
+@media screen and (min-width: 40em) {
+    .a11y-main-nav ul li {
+         flex: 1 0 auto;
+         width: auto;
+     }
+
+     .a11y-site-description {
+         margin: 0 -10rem;
+         padding: 3rem 30rem 3rem 10rem;
+     }
+
+     .a11y-theme aside {
+         padding: 5rem 1.6rem 18rem 1.6rem;
+     }
+
+     .a11y-theme aside ul ul {
+         margin-left: 2rem;
+     }
+
+     .a11y-theme.single main, .a11y-theme.category main {
+         border-top: main-content-border;
+         border-left: main-content-border;
+         border-right: main-content-border;
+     }
+
+     .a11y-site-header {
+         border-bottom: masthead-border;
+         margin-bottom: 0;
+         position: relative;
+
+         h1 {
+             font-size: 2rem;
+         }
+     }
+
+     #sidebar-graphic {
+         display:inline;
+         height: 29rem;
+         width:24rem;
+         position: relative;
+         bottom: -8rem;
+         left: -24.6rem;
+     }
+
+     .home #sidebar-graphic {
+         display: none;
+     }
+
+     /* Cosmetics */
+     #corner-flourish {
+         position: absolute;
+         top: -4rem;
+         right: 0rem;
+         width: 5rem;
+         height: 12rem;
+         display: inline;
+     }
+
+     #logo {
+         width: 4.1rem;
+         height: 5.2rem;
+     }
+}
+
+/* Foundation overrides */
+.a11y-theme .top-bar,
+.a11y-theme .top-bar ul {
+    background-color: masthead-background;
+}
+
+/**
+Unused styles:
+.a11y-entry-header
+.a11y-entry-meta
+.a11y-entry-content
+.a11y-entry-footer
+.a11y-page-content
+*/
