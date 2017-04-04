@@ -29,7 +29,7 @@ get_header(); ?>
 
                         <?php
                             $post_content = get_post($key);
-                            $thumbnail = get_the_post_thumbnail($key);
+                            $thumbnail = get_the_post_thumbnail($key,'',array( 'role' => 'presentation'));
                             $title = $post_content->post_title;
                             $content = $post_content->post_content;
                         ?>

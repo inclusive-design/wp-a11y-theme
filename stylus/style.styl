@@ -1,10 +1,10 @@
 /*!
-Theme Name: a11y
+Theme Name: a11y-0.0.3
 Theme URI:
 Author: Floe Project
 Author URI: http://floeproject.org/
 Description: Accessible theme <code>a11y</code>
-Version: 0.0.1
+Version: 0.0.3
 License:
 License URI:
 Text Domain: a11y
@@ -14,7 +14,6 @@ Tags: accessibility
 @font-face {
     font-family: "Muli";
     src: url("fonts/Muli-Regular.ttf") format("truetype");
-
 }
 
 @font-face {
@@ -65,6 +64,7 @@ front-main-content-link-focus ?= 0.2rem solid #006274;
 main-content-border ?= 1.6rem solid #ECEDED;
 main-content-background ?= #fff;
 main-content-color ?= #000;
+main-content-link-color ?= #AD3362;
 
 /* Front Page Panels */
 front-panel-container-background ?= #ECEDED;
@@ -386,13 +386,23 @@ html {
 }
 
 // Main - All other pages.
-.a11y-theme.category,
-.a11y-theme.single {
+.category,
+.single {
     main {
         border: none;
         background: main-content-background;
         padding: 1.6rem;
+
+        a {
+            color: main-content-link-color;
+        }
+
+        a:focus,
+        a:hover {
+            text-decoration: underline;
+        }
     }
+
 }
 
 /* Site Tagline (appears on front page only) */

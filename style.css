@@ -1,10 +1,10 @@
 /*
-Theme Name: a11y
+Theme Name: a11y-0.0.3
 Theme URI:
 Author: Floe Project
 Author URI: http://floeproject.org/
 Description: Accessible theme <code>a11y</code>
-Version: 0.0.1
+Version: 0.0.3
 License:
 License URI:
 Text Domain: a11y
@@ -211,11 +211,21 @@ html {
   padding: 0;
   overflow-x: hidden;
 }
-.a11y-theme.category main,
-.a11y-theme.single main {
+.category main,
+.single main {
   border: none;
   background: #fff;
   padding: 1.6rem;
+}
+.category main a,
+.single main a {
+  color: #ad3362;
+}
+.category main a:focus,
+.single main a:focus,
+.category main a:hover,
+.single main a:hover {
+  text-decoration: underline;
 }
 /* Site Tagline (appears on front page only) */
 .a11y-site-tagline {
