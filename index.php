@@ -14,7 +14,7 @@
 
 get_header(); ?>
 
-    <main class="small-12 columns">
+    <main id="content" class="a11y-site-main small-12 columns">
     <?php
     if ( have_posts() ) :
 
@@ -25,7 +25,7 @@ get_header(); ?>
             // insert the blog description on the front page.
             $description = get_bloginfo( 'description', 'display' );
             if ( $description || is_customize_preview() ) : ?>
-                <p class="a11y-site-description"><?php echo $description; /* WPCS: xss ok. */ ?></p>
+                <p class="a11y-site-tagline"><?php echo $description; /* WPCS: xss ok. */ ?></p>
             <?php
             endif;
         }

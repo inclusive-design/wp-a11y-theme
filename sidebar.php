@@ -7,14 +7,10 @@
  * @package a11y
  */
 
-if ( ! is_active_sidebar( 'sidebar-1' ) ) {
-	return;
-}
-
 global $category_landing_id;
 ?>
 
-<aside class="small-12 medium-3 columns" role="complementary">
+<aside class="a11y-site-aside small-12 medium-3 columns" role="complementary">
     <?php
     $category_current = get_the_category();
     $category_link =  get_term_link ($category_current[0]->slug, "category");

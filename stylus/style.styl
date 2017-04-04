@@ -1,6 +1,6 @@
 /*!
 Theme Name: a11y
-Theme URI: http://example.com/
+Theme URI:
 Author: Floe Project
 Author URI: http://floeproject.org/
 Description: Accessible theme <code>a11y</code>
@@ -12,99 +12,187 @@ Tags: accessibility
 */
 
 @font-face {
-    font-family: "OpenSans";
-    src: url("fonts/OpenSans-Regular.ttf") format("truetype");
-}
+    font-family: "Muli";
+    src: url("fonts/Muli-Regular.ttf") format("truetype");
 
-@font-face {
-    font-family: "RobotoSlab";
-    src: url("fonts/RobotoSlab-Regular.ttf") format("truetype");
 }
 
 @font-face {
     font-family: "Muli";
-    src: url("fonts/Muli-Regular.ttf") format("truetype");
+    src: url("fonts/Muli-Bold.ttf") format("truetype");
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: "Muli";
+    src: url("fonts/Muli-ExtraBold.ttf") format("truetype");
+    font-weight: 800;
 }
 
 primary-font ?=  "Muli", Arial, Helvetica;
 header-font ?= "Muli";
 header-color ?= #7A2344;
-button-focus ?= 0.2rem solid #0000CB;
-
 body-background ?= #fff;
+corner-flourish-color ?= #AD3362;
 
 /* Masthead colours */
 masthead-background ?= #fff;
-masthead-color ?= #0F1C22;
+masthead-color ?= #00303C;
 masthead-color-hover ?= #fff;
-masthead-background-hover ?= #0F1C22;
+masthead-background-hover ?= #00303C;
 masthead-border ?= 0.8rem solid #0C303B;
 
-main-nav-link-color ?= #0F1C22;
+main-nav-link-color ?= #00303C;
 main-nav-link-color-hover ?= #fff;
-main-nav-link-background-hover ?= #0F1C22;
-main-nav-link-focus ?= 0.2rem solid #0F1C22;
+main-nav-link-background-hover ?= #00303C;
+main-nav-link-focus ?= 0.2rem solid #00303C;
 
 /* Sidebar */
 sidebar-color ?= #fff;
-sidebar-background ?= #116172;
+sidebar-background ?= #006274;
 sidebar-link-color ?= #fff;
 sidebar-link-background-hover ?= #fff;
-sidebar-link-color-hover ?= #116172;
+sidebar-link-color-hover ?= #006274;
 sidebar-link-focus ?= 0.2rem solid #fff;
 
 /* Front Main Content Area */
-front-main-content-link-color ?= #116172;
-front-main-content-link-hover-background ?= #116172;
+front-main-content-link-color ?= #006274;
+front-main-content-link-hover-background ?= #006274;
 front-main-content-link-hover ?= #fff;
-front-main-content-link-focus ?= 0.2rem solid #116172;
+front-main-content-link-focus ?= 0.2rem solid #006274;
 
 /* Main Content Area for all other pages */
 main-content-border ?= 1.6rem solid #ECEDED;
 main-content-background ?= #fff;
+main-content-color ?= #000;
 
 /* Front Page Panels */
 front-panel-container-background ?= #ECEDED;
 front-panel-background ?= #fff;
 
 /* Skip Links */
-skip-color ?= #00444D;
-skip-background ?= #C5E0C5;
-skip-focus-outer-border ?= #00444D;
-skip-focus-inner-border ?= #C5E0C5;
-skip-hover-color ?= #C5E0C5;
-skip-hover-background ?= #00444D;
+skip-color ?= #006274;
+skip-background ?= #ECEDED;
+skip-focus-outer-border ?= #006274;
+skip-focus-inner-border ?= #ECEDED;
+skip-hover-color ?= #ECEDED;
+skip-hover-background ?= #006274;
 
 /* Front Page Footer */
-front-footer-background ?= #116172;
+front-footer-background ?= #006274;
 front-footer-color ?= #fff;
 front-footer-link-color ?= #fff;
 front-footer-link-hover-background ?= #fff;
-front-footer-link-hover ?= #116172;
+front-footer-link-hover ?= #006274;
 front-footer-link-focus ?= 0.2rem solid #fff;
 
 /* Sub Page Footer */
-footer-background ?= #0C303B;
+footer-background ?= #00303C;
 footer-color ?= #fff;
 footer-link-color ?= #fff;
 footer-link-hover-background ?= #fff;
-footer-link-hover ?= #0C303B;
+footer-link-hover ?= #00303C;
 footer-link-focus ?= 0.2rem solid #fff;
 
 /* Site description */
-site-description-color ?= #fff;
+site-tagline-color ?= #fff;
+site-tagline-emphasis ?= #FCC076;
+site-tagline-background-image ?= "./images/pen-idea-bulb-paper.png";
+
+/* Mixins */
+apply-contrast-sidebar-images(foreground fileSuffix) {
+    .a11y-site-aside {
+        background-image: url("./images/sidebar-graphic-"+fileSuffix+"-01.svg");
+    }
+
+    .a11y-site-footer {
+        border-top: 0.2rem solid foreground;
+        background-image: url("./images/sidebar-graphic-"+fileSuffix+"-02.svg");
+    }
+}
+
+apply-contrast-tagline-background(fileSuffix) {
+    .a11y-site-tagline {
+        background: url("./images/logo-"+fileSuffix+".svg");
+        background-position: 83% 3.6rem;
+        background-size: 14% auto;
+        background-repeat: no-repeat;
+    }
+}
+
+apply-contrast-colours(foreground background fileSuffix) {
+    #corner-flourish {
+        fill: foreground;
+        background-color: initial !important;
+    }
+
+    #ontario-logo {
+        fill: foreground;
+    }
+
+    a:hover {
+        color: background !important;
+        background-color: foreground !important;
+    }
+
+    a:focus {
+        outline: 0.2rem solid foreground !important;
+    }
+
+    .a11y-site {
+        border: 0.2rem solid foreground;
+    }
+
+    .a11y-site-tagline {
+        text-shadow: none;
+        background: none;
+    }
+
+    .a11y-panel-container {
+        background: foreground !important;
+    }
+
+    .a11y-site-aside {
+        border-top: 1.6rem solid background !important;
+    }
+
+    .a11y-site-header {
+        border-bottom: 0.2rem solid foreground;
+        h1 a {
+            background-image: url("./images/logo-"+fileSuffix+".svg");
+        }
+    }
+
+    .a11y-site-footer {
+        border-top: 0.2rem solid;
+        p {
+            background: none !important;
+        }
+    }
+}
+
+/* Styles for specific SVG images. */
+#corner-flourish {
+    display: none;
+}
+
+#ontario-logo {
+    width: 8rem;
+    fill: #fff;
+    margin: 0 auto;
+    display: block;
+    height: 2.2rem;
+}
 
 /* General styles */
 html {
     font-size: 16px;
 }
 
-body.a11y-theme {
+.a11y-theme {
     font-family: primary-font;
     background-color: body-background;
-}
 
-.a11y-theme {
     h1, h2, h3 {
         font-family: header-font;
         color: header-color;
@@ -113,10 +201,8 @@ body.a11y-theme {
     }
 }
 
-.a11y-site {
-    overflow-x: hidden;
-}
 
+/* Skip links */
 #skip {
     float: left;
     height: 0rem;
@@ -125,6 +211,7 @@ body.a11y-theme {
 #skip a {
     color: skip-color;
     background: skip-background;
+    margin-top: 1rem;
 
     &, &:hover, &:visited {
         height: 1px;
@@ -150,58 +237,102 @@ body.a11y-theme {
     }
 }
 
-/*
-UI Options.
-*/
-.a11y-theme .fl-panelBar {
+/* UI Options. */
+.fl-prefsEditor-separatedPanel .fl-panelBar {
     flex-flow: row wrap;
     display: flex;
     justify-content: flex-end;
     background-color: inherit;
     border-bottom: none;
+
+    .fl-prefsEditor-buttons {
+        margin-right: 5em;
+    }
+
+    button:focus {
+        outline: 0.2rem solid #000;
+    }
+
+    .fl-prefsEditor-showHide {
+        min-width: 7em;
+    }
 }
 
+/* Site Header */
 .a11y-site-header {
     background-color: masthead-background;
-    margin-bottom: 1rem;
-    h1 {
-        font-weight: bold;
+    margin-top: 1.2rem;
+    padding-bottom: 1rem;
+    padding-left: 0;
+    padding-right: 0; // override Foundation's padding.
+
+    .a11y-site-title {
         margin: 0;
         display: inline-block;
         text-transform: none;
         font-size: 1.7rem;
     }
 
-    h1 a {
+    .a11y-site-title a {
+        font-weight: bolder;
         color: masthead-color;
+        display:flex;
+        align-items:flex-end;
+
+        background: url("./images/logo-COLOUR.svg") right -0.1rem/5.5rem 4rem no-repeat;
+        width: 12rem;
+        height: 4.5rem;
 
         &:hover {
-            background: masthead-background-hover;
+            background-color: masthead-background-hover;
             color: masthead-color-hover;
+        }
+
+        &:focus {
+            outline: main-nav-link-focus;
         }
     }
 
     nav {
-        padding: 0;
+        display: inline;
     }
 }
 
-#logo {
-    width: 3rem;
-    height: 3rem;
-}
-
-#corner-flourish {
-    display: none;
-}
-
-
-/*
-Navigation.
-*/
 .a11y-main-nav {
-    width: 100%;
 
+    .title-bar {
+        display: inline-block;
+        background-color: inherit;
+    }
+
+    .menu-icon {
+        width: 2.5rem;
+        height: 2.5rem;
+        display:flex;
+        align-items:end;
+        margin-top: 1rem;
+
+        &:focus {
+            outline: main-nav-link-focus;
+        }
+
+        &:before {
+            font-size: 1.8rem;
+            content: "\2630";
+            position: absolute;
+            top: -0.4rem;
+            left: 0.4rem;
+        }
+
+        &:after {
+            display:none;
+            visibility: hidden;
+        }
+    }
+}
+
+/* Shared navigation styles for all screen sizes. */
+.a11y-main-nav-items {
     ul {
         display: flex;
         justify-content: space-between;
@@ -210,11 +341,9 @@ Navigation.
 
     li {
         width: 100%;
-        border-left: 0.1rem solid masthead-color;
     }
 
-    ul a {
-        width: 100%;
+    a {
         display: inline-block;
         color: main-nav-link-color;
         text-transform: uppercase;
@@ -230,40 +359,30 @@ Navigation.
     }
 }
 
+/* Navigation for medium screens and larger. */
+@media screen and (min-width: 40em) {
+    .a11y-main-nav-items {
+        width: 100%;
+
+        .menu-item {
+            border-right: 0.1rem solid masthead-color;
+
+            &:last-of-type {
+                border-right: none;
+            }
+        }
+
+        .menu li a {
+            padding: 0.7rem 0.8rem;
+        }
+    }
+}
+
 // Main - Front Page
-.a11y-theme.home main {
+.home .a11y-site-main {
     background-color: front-main-content-background;
-
-    a {
-        color: front-main-content-link-color;
-        text-decoration: underline;
-
-        &:hover {
-            color: front-main-content-link-hover;
-            background-color: front-main-content-link-hover-background;
-        }
-
-        &:focus {
-            outline: front-main-content-link-focus;
-        }
-    }
-
-    /* Site Description */
-    .a11y-site-description {
-        min-height: 15rem;
-        background-color: #273842;
-
-        /*
-        The site description is treated specially. It bleeds over the padding of
-        the <main> container to the edges of the screen. To do this, the
-        description is floated and expanded to stretch outside the visible screen.
-        */
-        margin: 0 -10rem;
-        padding: 3rem 10rem 3rem 10rem;
-        font-size: 1.2rem;
-        color: site-description-color;
-    }
-    // overflow: hidden;
+    padding: 0;
+    overflow-x: hidden;
 }
 
 // Main - All other pages.
@@ -273,27 +392,56 @@ Navigation.
         border: none;
         background: main-content-background;
         padding: 1.6rem;
-
-        h1 {
-            margin-top: 0;
-        }
     }
 }
 
+/* Site Tagline (appears on front page only) */
+.a11y-site-tagline {
+    background-color: #274D5D;
+    background: url(site-tagline-background-image) 0 -3rem/100% auto no-repeat,#274D5D;
+    padding: 1rem;
+
+    display:flex;
+    align-items:center;
+    font-size: 1.2rem;
+    text-shadow: 0.1rem 0.1rem #1a1a1a;
+    color: site-tagline-color;
+}
+
+.a11y-tagline-emphasis {
+    color: site-tagline-emphasis;
+}
+
+/* The Three Panels that appear on the front page. */
 .a11y-panel-container {
     padding: 1rem 2rem;
     background-color: front-panel-container-background;
+
+    &.row {
+        // override Foundation margins.
+        margin-left: 0;
+        margin-right: 0;
+    }
 }
 
 .a11y-front-panel {
     background-color: front-panel-background;
     border: 1rem solid front-panel-container-background;
+
+    color: inherit;
+
+    &:focus, &:hover {
+        color: inherit;
+        border-color: front-main-content-link-color;
+    }
+
     &.columns {
         padding: 0;
     }
 
     h1 {
         font-size: 1.2rem;
+        text-transform: none;
     }
 
     h1, section {
@@ -301,23 +449,16 @@ Navigation.
     }
 }
 
-#sidebar-graphic {
-    display: none;
-}
-
-// Sidebar
-.a11y-theme aside {
+/* Site Sidebar (appears on all other pages, except front page) */
+.a11y-site-aside {
     color: sidebar-color;
-    background-color: sidebar-background;
+    background: sidebar-background;
     padding: 1rem 1.6rem;
 
     ul {
         list-style: none;
         margin: 0;
     }
-
-     li {
-     }
 
     .a11y-sidebar-current:before {
         content: "\25B6";
@@ -341,6 +482,12 @@ Navigation.
 
         &:focus {
             outline: sidebar-link-focus;
+            color: sidebar-link-color;
+        }
+
+        &:focus:hover {
+            background-color: sidebar-link-background-hover;
+            color: sidebar-link-color-hover;
         }
     }
 
@@ -350,11 +497,40 @@ Navigation.
     }
 }
 
-// Footer
-.a11y-theme footer {
+/* Main Content Area Styles */
+.a11y-site-main h1, .a11y-entry-header h1 {
+    font-size: 2.6rem;
+}
+
+.a11y-site-main article {
+    h1, h2, h3 {
+        margin-bottom: 0.8rem;
+        margin-top: 2rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.6rem;
+    }
+
+    h3 {
+        font-size: 1.2rem;
+    }
+
+    blockquote {
+        color: main-content-color;
+        border-left: 0.2rem solid #000;
+    }
+}
+
+/* Footer */
+.a11y-site-footer {
     padding: 1rem;
-    min-height: 6rem;
     background-color: footer-background;
+    color: footer-color;
 
     a {
         color: footer-link-color;
@@ -365,11 +541,13 @@ Navigation.
 
         &:focus {
             outline: footer-link-focus;
+            color: footer-link-color; // override Foundation style.
         }
     }
 }
 
-.home footer {
+/* Footer styles for the home page only. */
+.home .a11y-site-footer {
     background-color: front-footer-background;
 
     a{
@@ -382,85 +560,163 @@ Navigation.
             outline: front-footer-link-focus;
         }
     }
-
 }
 
-// Medium and larger
+/* Contrast Themes */
+.fl-theme-wb {
+    apply-contrast-colours (#fff #000 "WHITE");
+}
+
+.fl-theme-bw {
+    apply-contrast-colours (#000 #fff "GREY");
+}
+
+.fl-theme-yb {
+    apply-contrast-colours (#ff0 #000 "YELLOW");
+}
+
+.fl-theme-by {
+    apply-contrast-colours (#000 #ff0 "GREY");
+}
+
+.fl-theme-lgdg {
+    apply-contrast-colours (#bdbdbb #555 "WHITE");
+}
+
+/* Styles for Medium resolution and larger */
 @media screen and (min-width: 40em) {
-    .a11y-main-nav ul li {
-         flex: 1 0 auto;
-         width: auto;
-     }
+      #corner-flourish {
+          position: absolute;
+          top: -4rem;
+          right: 0rem;
+          width: 6rem;
+          height: 12rem;
+          display: inline;
+          fill: corner-flourish-color;
+      }
 
-     .a11y-site-description {
-         margin: 0 -10rem;
-         padding: 3rem 30rem 3rem 10rem;
-     }
+      #logo {
+          width: 4.1rem;
+          height: 5.2rem;
+      }
 
-     .a11y-theme aside {
-         padding: 5rem 1.6rem 18rem 1.6rem;
-     }
-
-     .a11y-theme aside ul ul {
-         margin-left: 2rem;
-     }
-
-     .a11y-theme.single main, .a11y-theme.category main {
-         border-top: main-content-border;
-         border-left: main-content-border;
-         border-right: main-content-border;
-     }
+      .fl-prefsEditor-separatedPanel .fl-panelBar .fl-prefsEditor-buttons {
+          margin-right: 10rem;
+      }
 
      .a11y-site-header {
          border-bottom: masthead-border;
          margin-bottom: 0;
          position: relative;
+         padding-bottom: 0;
 
          h1 {
              font-size: 2rem;
          }
      }
 
-     #sidebar-graphic {
-         display:inline;
-         height: 29rem;
-         width:24rem;
-         position: relative;
-         bottom: -8rem;
-         left: -24.6rem;
-     }
+     .a11y-main-nav-items ul li {
+          flex: 1 0 auto;
+          width: auto;
+          margin: 0.2rem;
+      }
 
-     .home #sidebar-graphic {
-         display: none;
-     }
+      .single,
+      .category{
+          min-width: 40rem;
+      }
 
-     /* Cosmetics */
-     #corner-flourish {
-         position: absolute;
-         top: -4rem;
-         right: 0rem;
-         width: 5rem;
-         height: 12rem;
-         display: inline;
-     }
+      .a11y-site-aside {
+          padding: 5rem 1.6rem 25rem 1.6rem;
+          background-image: url("./images/sidebar-graphic-COLOUR-01.svg");
+          background-position: left bottom;
+          background-repeat: no-repeat;
+          background-size: 18rem auto;
 
-     #logo {
-         width: 4.1rem;
-         height: 5.2rem;
-     }
+          ul ul {
+              margin-left: 1rem;
+          }
+      }
+
+      .a11y-site-tagline {
+          margin: 0 -10rem;
+          padding: 3rem 15rem;
+          min-height: 16rem;
+          font-size: 1.6rem;
+          background-position: 0 -10rem;
+      }
+
+      .a11y-site-footer {
+          background-image: url("./images/sidebar-graphic-COLOUR-02.svg");
+          background-position: left top;
+          background-repeat: no-repeat;
+
+          background-size: 18rem auto;
+      }
+
+      .single .a11y-site-main, .category .a11y-site-main {
+          border-top: main-content-border;
+          border-left: main-content-border;
+          border-right: main-content-border;
+          padding-bottom: 4rem;
+      }
+
+      .fl-theme-wb {
+          apply-contrast-sidebar-images (#fff "WHITE");
+      }
+
+      .fl-theme-bw {
+          apply-contrast-sidebar-images (#000 "GREY");
+      }
+
+      .fl-theme-yb {
+          apply-contrast-sidebar-images (#ff0 "YELLOW");
+      }
+
+      .fl-theme-by {
+          apply-contrast-sidebar-images (#000 "GREY");
+      }
+
+      .fl-theme-lgdg {
+          apply-contrast-sidebar-images (#bdbdbb "WHITE");
+      }
 }
 
-/* Foundation overrides */
-.a11y-theme .top-bar,
-.a11y-theme .top-bar ul {
-    background-color: masthead-background;
-}
 
-/**
-Unused styles:
-.a11y-entry-header
-.a11y-entry-meta
-.a11y-entry-content
-.a11y-entry-footer
-.a11y-page-content
-*/
+/* Large screens and bigger */
+@media screen and (min-width: 64em) {
+      .a11y-site-tagline {
+          background: url("./images/logo-COLOUR.svg") no-repeat,
+                      url(site-tagline-background-image) no-repeat,
+                      #274D5D;
+          background-position: 83% 3.6rem, 9rem -5rem;
+          background-size: 14% auto, 82% auto;
+
+          padding: 3rem 50% 3rem 15rem;
+          min-height: 25rem;
+      }
+
+      .a11y-site-aside ul ul {
+          margin-left: 2rem;
+      }
+
+      .fl-theme-wb {
+          apply-contrast-tagline-background ("WHITE");
+      }
+
+      .fl-theme-bw {
+          apply-contrast-tagline-background ("GREY");
+      }
+
+      .fl-theme-yb {
+          apply-contrast-tagline-background ("YELLOW");
+      }
+
+      .fl-theme-by {
+          apply-contrast-tagline-background ("GREY");
+      }
+
+      .fl-theme-lgdg {
+          apply-contrast-tagline-background ("WHITE");
+      }
+}

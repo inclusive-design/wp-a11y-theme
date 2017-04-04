@@ -1,6 +1,6 @@
 /*
 Theme Name: a11y
-Theme URI: http://example.com/
+Theme URI:
 Author: Floe Project
 Author URI: http://floeproject.org/
 Description: Accessible theme <code>a11y</code>
@@ -11,16 +11,18 @@ Text Domain: a11y
 Tags: accessibility
 */
 @font-face {
-  font-family: "OpenSans";
-  src: url("fonts/OpenSans-Regular.ttf") format("truetype");
-}
-@font-face {
-  font-family: "RobotoSlab";
-  src: url("fonts/RobotoSlab-Regular.ttf") format("truetype");
+  font-family: "Muli";
+  src: url("fonts/Muli-Regular.ttf") format("truetype");
 }
 @font-face {
   font-family: "Muli";
-  src: url("fonts/Muli-Regular.ttf") format("truetype");
+  src: url("fonts/Muli-Bold.ttf") format("truetype");
+  font-weight: bold;
+}
+@font-face {
+  font-family: "Muli";
+  src: url("fonts/Muli-ExtraBold.ttf") format("truetype");
+  font-weight: 800;
 }
 /* Masthead colours */
 /* Sidebar */
@@ -31,11 +33,23 @@ Tags: accessibility
 /* Front Page Footer */
 /* Sub Page Footer */
 /* Site description */
+/* Mixins */
+/* Styles for specific SVG images. */
+#corner-flourish {
+  display: none;
+}
+#ontario-logo {
+  width: 8rem;
+  fill: #fff;
+  margin: 0 auto;
+  display: block;
+  height: 2.2rem;
+}
 /* General styles */
 html {
   font-size: 16px;
 }
-body.a11y-theme {
+.a11y-theme {
   font-family: "Muli", Arial, Helvetica;
   background-color: #fff;
 }
@@ -47,16 +61,15 @@ body.a11y-theme {
   text-transform: uppercase;
   font-weight: bold;
 }
-.a11y-site {
-  overflow-x: hidden;
-}
+/* Skip links */
 #skip {
   float: left;
   height: 0rem;
 }
 #skip a {
-  color: #00444d;
-  background: #c5e0c5;
+  color: #006274;
+  background: #eceded;
+  margin-top: 1rem;
 }
 #skip a,
 #skip a:hover,
@@ -67,114 +80,136 @@ body.a11y-theme {
   position: absolute;
   top: auto;
   width: 1px;
-  color: #c5e0c5;
-  background: #00444d;
+  color: #eceded;
+  background: #006274;
 }
 #skip a:active,
 #skip a:focus {
   height: auto;
   width: auto;
   left: auto;
-  border: 0.5rem solid #c5e0c5;
-  outline: 0.2rem solid #00444d;
-  color: #c5e0c5;
-  background: #00444d;
+  border: 0.5rem solid #eceded;
+  outline: 0.2rem solid #006274;
+  color: #eceded;
+  background: #006274;
   padding: 1rem;
   z-index: 1;
 }
-/*
-UI Options.
-*/
-.a11y-theme .fl-panelBar {
+/* UI Options. */
+.fl-prefsEditor-separatedPanel .fl-panelBar {
   flex-flow: row wrap;
   display: flex;
   justify-content: flex-end;
   background-color: inherit;
   border-bottom: none;
 }
+.fl-prefsEditor-separatedPanel .fl-panelBar .fl-prefsEditor-buttons {
+  margin-right: 5em;
+}
+.fl-prefsEditor-separatedPanel .fl-panelBar button:focus {
+  outline: 0.2rem solid #000;
+}
+.fl-prefsEditor-separatedPanel .fl-panelBar .fl-prefsEditor-showHide {
+  min-width: 7em;
+}
+/* Site Header */
 .a11y-site-header {
   background-color: #fff;
-  margin-bottom: 1rem;
+  margin-top: 1.2rem;
+  padding-bottom: 1rem;
+  padding-left: 0;
+  padding-right: 0;
 }
-.a11y-site-header h1 {
-  font-weight: bold;
+.a11y-site-header .a11y-site-title {
   margin: 0;
   display: inline-block;
   text-transform: none;
   font-size: 1.7rem;
 }
-.a11y-site-header h1 a {
-  color: #0f1c22;
+.a11y-site-header .a11y-site-title a {
+  font-weight: bolder;
+  color: #00303c;
+  display: flex;
+  align-items: flex-end;
+  background: url("./images/logo-COLOUR.svg") right -0.1rem/5.5rem 4rem no-repeat;
+  width: 12rem;
+  height: 4.5rem;
 }
-.a11y-site-header h1 a:hover {
-  background: #0f1c22;
+.a11y-site-header .a11y-site-title a:hover {
+  background-color: #00303c;
   color: #fff;
 }
+.a11y-site-header .a11y-site-title a:focus {
+  outline: 0.2rem solid #00303c;
+}
 .a11y-site-header nav {
-  padding: 0;
+  display: inline;
 }
-#logo {
-  width: 3rem;
-  height: 3rem;
+.a11y-main-nav .title-bar {
+  display: inline-block;
+  background-color: inherit;
 }
-#corner-flourish {
+.a11y-main-nav .menu-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: end;
+  margin-top: 1rem;
+}
+.a11y-main-nav .menu-icon:focus {
+  outline: 0.2rem solid #00303c;
+}
+.a11y-main-nav .menu-icon:before {
+  font-size: 1.8rem;
+  content: "\2630";
+  position: absolute;
+  top: -0.4rem;
+  left: 0.4rem;
+}
+.a11y-main-nav .menu-icon:after {
   display: none;
+  visibility: hidden;
 }
-/*
-Navigation.
-*/
-.a11y-main-nav {
-  width: 100%;
-}
-.a11y-main-nav ul {
+/* Shared navigation styles for all screen sizes. */
+.a11y-main-nav-items ul {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
 }
-.a11y-main-nav li {
+.a11y-main-nav-items li {
   width: 100%;
-  border-left: 0.1rem solid #0f1c22;
 }
-.a11y-main-nav ul a {
-  width: 100%;
+.a11y-main-nav-items a {
   display: inline-block;
-  color: #0f1c22;
+  color: #00303c;
   text-transform: uppercase;
 }
-.a11y-main-nav ul a:hover {
-  background-color: #0f1c22;
+.a11y-main-nav-items a:hover {
+  background-color: #00303c;
   color: #fff;
 }
-.a11y-main-nav ul a:focus {
-  outline: 0.2rem solid #0f1c22;
+.a11y-main-nav-items a:focus {
+  outline: 0.2rem solid #00303c;
 }
-.a11y-theme.home main {
+/* Navigation for medium screens and larger. */
+@media screen and (min-width: 40em) {
+  .a11y-main-nav-items {
+    width: 100%;
+  }
+  .a11y-main-nav-items .menu-item {
+    border-right: 0.1rem solid #00303c;
+  }
+  .a11y-main-nav-items .menu-item:last-of-type {
+    border-right: none;
+  }
+  .a11y-main-nav-items .menu li a {
+    padding: 0.7rem 0.8rem;
+  }
+}
+.home .a11y-site-main {
   background-color: front-main-content-background;
-/* Site Description */
-}
-.a11y-theme.home main a {
-  color: #116172;
-  text-decoration: underline;
-}
-.a11y-theme.home main a:hover {
-  color: #fff;
-  background-color: #116172;
-}
-.a11y-theme.home main a:focus {
-  outline: 0.2rem solid #116172;
-}
-.a11y-theme.home main .a11y-site-description {
-  min-height: 15rem;
-  background-color: #273842;
-/*
-        The site description is treated specially. It bleeds over the padding of
-        the <main> container to the edges of the screen. To do this, the
-        description is floated and expanded to stretch outside the visible screen.
-        */
-  margin: 0 -10rem;
-  padding: 3rem 10rem 3rem 10rem;
-  font-size: 1.2rem;
-  color: #fff;
+  padding: 0;
+  overflow-x: hidden;
 }
 .a11y-theme.category main,
 .a11y-theme.single main {
@@ -182,155 +217,482 @@ Navigation.
   background: #fff;
   padding: 1.6rem;
 }
-.a11y-theme.category main h1,
-.a11y-theme.single main h1 {
-  margin-top: 0;
+/* Site Tagline (appears on front page only) */
+.a11y-site-tagline {
+  background-color: #274d5d;
+  background: url("./images/pen-idea-bulb-paper.png") 0 -3rem/100% auto no-repeat, #274d5d;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  font-size: 1.2rem;
+  text-shadow: 0.1rem 0.1rem #1a1a1a;
+  color: #fff;
 }
+.a11y-tagline-emphasis {
+  color: #fcc076;
+}
+/* The Three Panels that appear on the front page. */
 .a11y-panel-container {
   padding: 1rem 2rem;
   background-color: #eceded;
 }
+.a11y-panel-container.row {
+  margin-left: 0;
+  margin-right: 0;
+}
 .a11y-front-panel {
   background-color: #fff;
   border: 1rem solid #eceded;
+  color: inherit;
+}
+.a11y-front-panel:focus,
+.a11y-front-panel:hover {
+  color: inherit;
+  border-color: #006274;
 }
 .a11y-front-panel.columns {
   padding: 0;
 }
 .a11y-front-panel h1 {
   font-size: 1.2rem;
+  text-transform: none;
 }
 .a11y-front-panel h1,
 .a11y-front-panel section {
   padding: 0.5rem 1.5rem;
 }
-#sidebar-graphic {
-  display: none;
-}
-.a11y-theme aside {
+/* Site Sidebar (appears on all other pages, except front page) */
+.a11y-site-aside {
   color: #fff;
-  background-color: #116172;
+  background: #006274;
   padding: 1rem 1.6rem;
 }
-.a11y-theme aside ul {
+.a11y-site-aside ul {
   list-style: none;
   margin: 0;
 }
-.a11y-theme aside .a11y-sidebar-current:before {
+.a11y-site-aside .a11y-sidebar-current:before {
   content: "\25B6";
 }
-.a11y-theme aside .a11y-sidebar-category-link {
+.a11y-site-aside .a11y-sidebar-category-link {
   text-transform: uppercase;
 }
-.a11y-theme aside a {
+.a11y-site-aside a {
   color: #fff;
   padding: 0.4rem;
   margin-bottom: 0.2rem;
   width: 100%;
   display: inline-block;
 }
-.a11y-theme aside a:hover {
+.a11y-site-aside a:hover {
   background-color: #fff;
-  color: #116172;
+  color: #006274;
 }
-.a11y-theme aside a:focus {
+.a11y-site-aside a:focus {
   outline: 0.2rem solid #fff;
+  color: #fff;
 }
-.a11y-theme aside h1,
-.a11y-theme aside h2,
-.a11y-theme aside h3 {
+.a11y-site-aside a:focus:hover {
+  background-color: #fff;
+  color: #006274;
+}
+.a11y-site-aside h1,
+.a11y-site-aside h2,
+.a11y-site-aside h3 {
   color: #fff;
   font-size: 1.2rem;
 }
-.a11y-theme footer {
-  padding: 1rem;
-  min-height: 6rem;
-  background-color: #0c303b;
+/* Main Content Area Styles */
+.a11y-site-main h1,
+.a11y-entry-header h1 {
+  font-size: 2.6rem;
 }
-.a11y-theme footer a {
+.a11y-site-main article h1,
+.a11y-site-main article h2,
+.a11y-site-main article h3 {
+  margin-bottom: 0.8rem;
+  margin-top: 2rem;
+}
+.a11y-site-main article h1 {
+  font-size: 2rem;
+}
+.a11y-site-main article h2 {
+  font-size: 1.6rem;
+}
+.a11y-site-main article h3 {
+  font-size: 1.2rem;
+}
+.a11y-site-main article blockquote {
+  color: #000;
+  border-left: 0.2rem solid #000;
+}
+/* Footer */
+.a11y-site-footer {
+  padding: 1rem;
+  background-color: #00303c;
   color: #fff;
 }
-.a11y-theme footer a:hover {
-  background-color: #fff;
-  color: #0c303b;
+.a11y-site-footer a {
+  color: #fff;
 }
-.a11y-theme footer a:focus {
+.a11y-site-footer a:hover {
+  background-color: #fff;
+  color: #00303c;
+}
+.a11y-site-footer a:focus {
+  outline: 0.2rem solid #fff;
+  color: #fff;
+}
+/* Footer styles for the home page only. */
+.home .a11y-site-footer {
+  background-color: #006274;
+}
+.home .a11y-site-footer a:hover {
+  background-color: #fff;
+  color: #006274;
+}
+.home .a11y-site-footer a:focus {
   outline: 0.2rem solid #fff;
 }
-.home footer {
-  background-color: #116172;
+/* Contrast Themes */
+.fl-theme-wb #corner-flourish {
+  fill: #fff;
+  background-color: initial !important;
 }
-.home footer a:hover {
-  background-color: #fff;
-  color: #116172;
+.fl-theme-wb #ontario-logo {
+  fill: #fff;
 }
-.home footer a:focus {
-  outline: 0.2rem solid #fff;
+.fl-theme-wb a:hover {
+  color: #000 !important;
+  background-color: #fff !important;
 }
+.fl-theme-wb a:focus {
+  outline: 0.2rem solid #fff !important;
+}
+.fl-theme-wb .a11y-site {
+  border: 0.2rem solid #fff;
+}
+.fl-theme-wb .a11y-site-tagline {
+  text-shadow: none;
+  background: none;
+}
+.fl-theme-wb .a11y-panel-container {
+  background: #fff !important;
+}
+.fl-theme-wb .a11y-site-aside {
+  border-top: 1.6rem solid #000 !important;
+}
+.fl-theme-wb .a11y-site-header {
+  border-bottom: 0.2rem solid #fff;
+}
+.fl-theme-wb .a11y-site-header h1 a {
+  background-image: url("./images/logo-WHITE.svg");
+}
+.fl-theme-wb .a11y-site-footer {
+  border-top: 0.2rem solid;
+}
+.fl-theme-wb .a11y-site-footer p {
+  background: none !important;
+}
+.fl-theme-bw #corner-flourish {
+  fill: #000;
+  background-color: initial !important;
+}
+.fl-theme-bw #ontario-logo {
+  fill: #000;
+}
+.fl-theme-bw a:hover {
+  color: #fff !important;
+  background-color: #000 !important;
+}
+.fl-theme-bw a:focus {
+  outline: 0.2rem solid #000 !important;
+}
+.fl-theme-bw .a11y-site {
+  border: 0.2rem solid #000;
+}
+.fl-theme-bw .a11y-site-tagline {
+  text-shadow: none;
+  background: none;
+}
+.fl-theme-bw .a11y-panel-container {
+  background: #000 !important;
+}
+.fl-theme-bw .a11y-site-aside {
+  border-top: 1.6rem solid #fff !important;
+}
+.fl-theme-bw .a11y-site-header {
+  border-bottom: 0.2rem solid #000;
+}
+.fl-theme-bw .a11y-site-header h1 a {
+  background-image: url("./images/logo-GREY.svg");
+}
+.fl-theme-bw .a11y-site-footer {
+  border-top: 0.2rem solid;
+}
+.fl-theme-bw .a11y-site-footer p {
+  background: none !important;
+}
+.fl-theme-yb #corner-flourish {
+  fill: #ff0;
+  background-color: initial !important;
+}
+.fl-theme-yb #ontario-logo {
+  fill: #ff0;
+}
+.fl-theme-yb a:hover {
+  color: #000 !important;
+  background-color: #ff0 !important;
+}
+.fl-theme-yb a:focus {
+  outline: 0.2rem solid #ff0 !important;
+}
+.fl-theme-yb .a11y-site {
+  border: 0.2rem solid #ff0;
+}
+.fl-theme-yb .a11y-site-tagline {
+  text-shadow: none;
+  background: none;
+}
+.fl-theme-yb .a11y-panel-container {
+  background: #ff0 !important;
+}
+.fl-theme-yb .a11y-site-aside {
+  border-top: 1.6rem solid #000 !important;
+}
+.fl-theme-yb .a11y-site-header {
+  border-bottom: 0.2rem solid #ff0;
+}
+.fl-theme-yb .a11y-site-header h1 a {
+  background-image: url("./images/logo-YELLOW.svg");
+}
+.fl-theme-yb .a11y-site-footer {
+  border-top: 0.2rem solid;
+}
+.fl-theme-yb .a11y-site-footer p {
+  background: none !important;
+}
+.fl-theme-by #corner-flourish {
+  fill: #000;
+  background-color: initial !important;
+}
+.fl-theme-by #ontario-logo {
+  fill: #000;
+}
+.fl-theme-by a:hover {
+  color: #ff0 !important;
+  background-color: #000 !important;
+}
+.fl-theme-by a:focus {
+  outline: 0.2rem solid #000 !important;
+}
+.fl-theme-by .a11y-site {
+  border: 0.2rem solid #000;
+}
+.fl-theme-by .a11y-site-tagline {
+  text-shadow: none;
+  background: none;
+}
+.fl-theme-by .a11y-panel-container {
+  background: #000 !important;
+}
+.fl-theme-by .a11y-site-aside {
+  border-top: 1.6rem solid #ff0 !important;
+}
+.fl-theme-by .a11y-site-header {
+  border-bottom: 0.2rem solid #000;
+}
+.fl-theme-by .a11y-site-header h1 a {
+  background-image: url("./images/logo-GREY.svg");
+}
+.fl-theme-by .a11y-site-footer {
+  border-top: 0.2rem solid;
+}
+.fl-theme-by .a11y-site-footer p {
+  background: none !important;
+}
+.fl-theme-lgdg #corner-flourish {
+  fill: #bdbdbb;
+  background-color: initial !important;
+}
+.fl-theme-lgdg #ontario-logo {
+  fill: #bdbdbb;
+}
+.fl-theme-lgdg a:hover {
+  color: #555 !important;
+  background-color: #bdbdbb !important;
+}
+.fl-theme-lgdg a:focus {
+  outline: 0.2rem solid #bdbdbb !important;
+}
+.fl-theme-lgdg .a11y-site {
+  border: 0.2rem solid #bdbdbb;
+}
+.fl-theme-lgdg .a11y-site-tagline {
+  text-shadow: none;
+  background: none;
+}
+.fl-theme-lgdg .a11y-panel-container {
+  background: #bdbdbb !important;
+}
+.fl-theme-lgdg .a11y-site-aside {
+  border-top: 1.6rem solid #555 !important;
+}
+.fl-theme-lgdg .a11y-site-header {
+  border-bottom: 0.2rem solid #bdbdbb;
+}
+.fl-theme-lgdg .a11y-site-header h1 a {
+  background-image: url("./images/logo-WHITE.svg");
+}
+.fl-theme-lgdg .a11y-site-footer {
+  border-top: 0.2rem solid;
+}
+.fl-theme-lgdg .a11y-site-footer p {
+  background: none !important;
+}
+/* Styles for Medium resolution and larger */
 @media screen and (min-width: 40em) {
-  .a11y-main-nav ul li {
-    flex: 1 0 auto;
-    width: auto;
-  }
-  .a11y-site-description {
-    margin: 0 -10rem;
-    padding: 3rem 30rem 3rem 10rem;
-  }
-  .a11y-theme aside {
-    padding: 5rem 1.6rem 18rem 1.6rem;
-  }
-  .a11y-theme aside ul ul {
-    margin-left: 2rem;
-  }
-  .a11y-theme.single main,
-  .a11y-theme.category main {
-    border-top: 1.6rem solid #eceded;
-    border-left: 1.6rem solid #eceded;
-    border-right: 1.6rem solid #eceded;
-  }
-  .a11y-site-header {
-    border-bottom: 0.8rem solid #0c303b;
-    margin-bottom: 0;
-    position: relative;
-  }
-  .a11y-site-header h1 {
-    font-size: 2rem;
-  }
-  #sidebar-graphic {
-    display: inline;
-    height: 29rem;
-    width: 24rem;
-    position: relative;
-    bottom: -8rem;
-    left: -24.6rem;
-  }
-  .home #sidebar-graphic {
-    display: none;
-  }
   #corner-flourish {
     position: absolute;
     top: -4rem;
     right: 0rem;
-    width: 5rem;
+    width: 6rem;
     height: 12rem;
     display: inline;
+    fill: #ad3362;
   }
   #logo {
     width: 4.1rem;
     height: 5.2rem;
   }
+  .fl-prefsEditor-separatedPanel .fl-panelBar .fl-prefsEditor-buttons {
+    margin-right: 10rem;
+  }
+  .a11y-site-header {
+    border-bottom: 0.8rem solid #0c303b;
+    margin-bottom: 0;
+    position: relative;
+    padding-bottom: 0;
+  }
+  .a11y-site-header h1 {
+    font-size: 2rem;
+  }
+  .a11y-main-nav-items ul li {
+    flex: 1 0 auto;
+    width: auto;
+    margin: 0.2rem;
+  }
+  .single,
+  .category {
+    min-width: 40rem;
+  }
+  .a11y-site-aside {
+    padding: 5rem 1.6rem 25rem 1.6rem;
+    background-image: url("./images/sidebar-graphic-COLOUR-01.svg");
+    background-position: left bottom;
+    background-repeat: no-repeat;
+    background-size: 18rem auto;
+  }
+  .a11y-site-aside ul ul {
+    margin-left: 1rem;
+  }
+  .a11y-site-tagline {
+    margin: 0 -10rem;
+    padding: 3rem 15rem;
+    min-height: 16rem;
+    font-size: 1.6rem;
+    background-position: 0 -10rem;
+  }
+  .a11y-site-footer {
+    background-image: url("./images/sidebar-graphic-COLOUR-02.svg");
+    background-position: left top;
+    background-repeat: no-repeat;
+    background-size: 18rem auto;
+  }
+  .single .a11y-site-main,
+  .category .a11y-site-main {
+    border-top: 1.6rem solid #eceded;
+    border-left: 1.6rem solid #eceded;
+    border-right: 1.6rem solid #eceded;
+    padding-bottom: 4rem;
+  }
+  .fl-theme-wb .a11y-site-aside {
+    background-image: url("./images/sidebar-graphic-WHITE-01.svg");
+  }
+  .fl-theme-wb .a11y-site-footer {
+    border-top: 0.2rem solid #fff;
+    background-image: url("./images/sidebar-graphic-WHITE-02.svg");
+  }
+  .fl-theme-bw .a11y-site-aside {
+    background-image: url("./images/sidebar-graphic-GREY-01.svg");
+  }
+  .fl-theme-bw .a11y-site-footer {
+    border-top: 0.2rem solid #000;
+    background-image: url("./images/sidebar-graphic-GREY-02.svg");
+  }
+  .fl-theme-yb .a11y-site-aside {
+    background-image: url("./images/sidebar-graphic-YELLOW-01.svg");
+  }
+  .fl-theme-yb .a11y-site-footer {
+    border-top: 0.2rem solid #ff0;
+    background-image: url("./images/sidebar-graphic-YELLOW-02.svg");
+  }
+  .fl-theme-by .a11y-site-aside {
+    background-image: url("./images/sidebar-graphic-GREY-01.svg");
+  }
+  .fl-theme-by .a11y-site-footer {
+    border-top: 0.2rem solid #000;
+    background-image: url("./images/sidebar-graphic-GREY-02.svg");
+  }
+  .fl-theme-lgdg .a11y-site-aside {
+    background-image: url("./images/sidebar-graphic-WHITE-01.svg");
+  }
+  .fl-theme-lgdg .a11y-site-footer {
+    border-top: 0.2rem solid #bdbdbb;
+    background-image: url("./images/sidebar-graphic-WHITE-02.svg");
+  }
 }
-/* Foundation overrides */
-.a11y-theme .top-bar,
-.a11y-theme .top-bar ul {
-  background-color: #fff;
+/* Large screens and bigger */
+@media screen and (min-width: 64em) {
+  .a11y-site-tagline {
+    background: url("./images/logo-COLOUR.svg") no-repeat, url("./images/pen-idea-bulb-paper.png") no-repeat, #274d5d;
+    background-position: 83% 3.6rem, 9rem -5rem;
+    background-size: 14% auto, 82% auto;
+    padding: 3rem 50% 3rem 15rem;
+    min-height: 25rem;
+  }
+  .a11y-site-aside ul ul {
+    margin-left: 2rem;
+  }
+  .fl-theme-wb .a11y-site-tagline {
+    background: url("./images/logo-WHITE.svg");
+    background-position: 83% 3.6rem;
+    background-size: 14% auto;
+    background-repeat: no-repeat;
+  }
+  .fl-theme-bw .a11y-site-tagline {
+    background: url("./images/logo-GREY.svg");
+    background-position: 83% 3.6rem;
+    background-size: 14% auto;
+    background-repeat: no-repeat;
+  }
+  .fl-theme-yb .a11y-site-tagline {
+    background: url("./images/logo-YELLOW.svg");
+    background-position: 83% 3.6rem;
+    background-size: 14% auto;
+    background-repeat: no-repeat;
+  }
+  .fl-theme-by .a11y-site-tagline {
+    background: url("./images/logo-GREY.svg");
+    background-position: 83% 3.6rem;
+    background-size: 14% auto;
+    background-repeat: no-repeat;
+  }
+  .fl-theme-lgdg .a11y-site-tagline {
+    background: url("./images/logo-WHITE.svg");
+    background-position: 83% 3.6rem;
+    background-size: 14% auto;
+    background-repeat: no-repeat;
+  }
 }
-/**
-Unused styles:
-.a11y-entry-header
-.a11y-entry-meta
-.a11y-entry-content
-.a11y-entry-footer
-.a11y-page-content
-*/
 

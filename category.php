@@ -47,10 +47,10 @@ if ( ! empty( $category_current ) ) {
 get_header();
 get_sidebar();
 ?>
-    <main class="columns">
+    <main id="content" class="a11y-site-main columns">
+        <h1><?php echo $category_name ?></h1>
         <section>
             <article>
-                <h1><?php echo $category_name ?></h1>
                 <div class="a11y-entry-content">
                     <?php echo $category_landing_content; ?>
                 </div>
@@ -73,5 +73,6 @@ get_sidebar();
         }
         ?>
         </section>
+    </main>
 <?php
 get_footer();

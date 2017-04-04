@@ -11,7 +11,7 @@ get_header();
 get_sidebar();
 ?>
 
-    <main class="columns">
+    <main id="content" class="a11y-site-main columns">
 
     <?php
     if ( have_posts() ) : ?>
@@ -42,7 +42,7 @@ get_sidebar();
 
     endif; ?>
 
-    </main><!-- #main -->
+    </main>
 
 <?php
 get_footer();

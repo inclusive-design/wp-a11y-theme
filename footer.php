@@ -10,20 +10,24 @@
  */
 
 ?>
-            <svg id="sidebar-graphic" preserveAspectRatio="xMidYMid meet" >
-                <use xlink:href="<?php bloginfo('template_url');?>/images/sidebar-graphic-01.svg#Layer_1" />
-            </svg>
-        </main>
-    </div><!-- #content -->
 
-    <footer class="small-12 columns site-footer text-center" role="contentinfo">
+    </div>
 
+    <footer class="small-12 columns a11y-site-footer text-center" role="contentinfo">
+        <p>
+            <?php
+            $settings = (array) get_option ('a11y-theme-settings');
+            //$footer_string = esc_html($settings['site_text_footer']);
+            $footer_string = $settings['site_text_footer'];
+            echo $footer_string;
+            ?>
+        </p>
 
-        <div class="site-info">
-            <a href="<?php echo esc_url( __( 'https://floeproject.org/') ); ?>"><?php printf( esc_html__( 'Accessible Theme by %s', 'a11y' ), 'The FLOE Project' ); ?></a>
-        </div><!-- .site-info -->
-    </footer><!-- #colophon -->
-</div><!-- #page -->
+        <svg id="ontario-logo" role="presentation">
+            <use xlink:href="<?php bloginfo('template_url');?>/images/ontario-logo.svg#Layer_1" />
+        </svg>
+    </footer>
+</div>
 
 <?php wp_footer(); ?>
 

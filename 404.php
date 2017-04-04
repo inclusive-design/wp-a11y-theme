@@ -9,7 +9,7 @@
 
 get_header(); ?>
 
-    <main class="small-12 columns">
+    <main id="content" class="a11y-site-main small-12 columns">
 
         <h1><?php esc_html_e( 'That page can&rsquo;t be found.', 'a11y' ); ?></h1>
 

@@ -24,13 +24,7 @@
         else :
             the_title( '<h1 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h1>' );
         endif;
-
-        if ( 'post' === get_post_type() ) : ?>
-        <div class="a11y-entry-meta">
-            <?php a11y_posted_on(); ?>
-        </div>
-        <?php
-        endif; ?>
+        ?>
     </header>
 
     <div class="a11y-entry-content">

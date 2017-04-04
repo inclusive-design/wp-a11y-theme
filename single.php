@@ -10,7 +10,7 @@
 get_header();
 get_sidebar();
 ?>
-    <main class="columns">
+    <main id="content" class="a11y-site-main columns">
 
     <?php
     while ( have_posts() ) : the_post();
@@ -24,5 +24,6 @@ get_sidebar();
 
     endwhile; // End of the loop.
     ?>
+    </main>
 <?php
 get_footer();
