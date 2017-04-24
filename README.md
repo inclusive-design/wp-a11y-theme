@@ -2,13 +2,21 @@
 
 An accessible, responsive Wordpress theme created by the Floe Project. The theme features a static front page which displays a prominent description, and three content panels. The main navigation can display content landing pages, giving visitors a spot to orient themselves before diving deeper into the content.
 
-## Installation
+## Under Development
+
+This theme is still under development. We intend to make improvements over time to make the configuration and use of this theme easier. For example:
+
+* Easier bundling of the [UI Options plugin](https://github.com/fluid-project/uio-wordpress-plugin).
+* Enable the theme admin page to set landing pages for categories.
+* Easier customization.
+
+# Installation
 
 1. Copy this theme into a sub-directory in your Wordpress `themes` directory.
 2. Download and install the [UI Options Wordpress plugin](https://github.com/fluid-project/uio-wordpress-plugin) into your Wordpress `plugins` directory. Note: This plugin is required.
 3. Activate the `a11y` theme.
 
-## Information Structure
+# Content Structure
 
 Before configuring the website, have a general idea of how the information will be structured. For this documentation, we will use a fictitious "A1 Renovations" construction company as a model. Their website will have the following structure:
 
@@ -49,7 +57,7 @@ To demonstrate how the category landing pages work, we will create some sample p
 3. Assign the landing page to the category it belongs to. i.e. `Showcase`.
 4. Add a Custom Field called `is_landing_page` and give it a value of `true`. Note, to enable Custom Fields, please visit [Custom Fields on the Wordpress Codex](https://codex.wordpress.org/Custom_Fields#Usage).
 5. Save your changes by selecting `Publish`.
-6. Repeat steps 1 to 5 for every langing page you need.
+6. Repeat steps 1 to 5 for every landing page you need.
 
 ## Setting up the Navigation
 
@@ -63,15 +71,43 @@ Now if you view your site, it won't look much different. That's because the navi
 
 Now if you refresh the site, you should now see the navigation along the top. If you select your category, the landing page should appear along with the sub-pages listed in the sidebar navigation.
 
-## Configuring the Three Panels on the front Page
+## Configuring the Tagline and the Footer Text
+
+The site tagline and footer content can be customized with any text or HTML.
+
+To customize the front page tagline or footer content, go to `Settings` > `a11y Theme Options`, then change the text fields `Front Page Tagline` or `Footer Text`.
+
+*Note:* at this time, the configuration of the `a11y` theme front page requires Administration privileges.
+
+## Configuring the Three Panels on the Front Page
 
 Another feature of the a11y theme is the three content panels on the front page. The content of these panels are populated from any 3 posts or pages in your site. The titles and image thumbnails (if of the post / page has a Featured Image) can also link to any content within your site.
 
+*Note:* at this time, the configuration of the `a11y` theme front page requires Administration privileges.
+
 To set this up:
 
-1. In the Dashboard go to `Appearance` > `a11y Theme Options`
+1. In the Dashboard go to `Settings` > `a11y Theme Options`
 2. Under `Front Panel Content` enter in the IDs of the 3 posts or pages to appear within the panels.
 3. Under `Front Panel Links` enter the address the title and thumbnail should link to. The address should belong to the website.
+
+# Customizing Styles and CSS
+
+It's likely you will want to change the default styles for this theme.
+
+## CSS and Stylus
+The CSS for this theme is built using [Stylus](http://stylus-lang.com/). The source Stylus files is located in the `wp-a11y-theme/stylus/` directory. It is recommended that you work from the Stylus files and compile to CSS.
+
+For example, to compile the Stylus files to CSS using the Stylus command line tool, the following command would be used:
+```
+stylus < ./stylus/style.styl > style.css
+```
+
+## Zurb Foundation CSS Framework
+
+By default this theme uses the [Zurb Foundation CSS framework](http://foundation.zurb.com/), but can be changed to use any CSS framwork you prefer.
+
+The Floe Project has used Foundation in many web projects and has found Foundation to be reasonably accessible and works well with the UI Options plugin.
 
 # About
 
