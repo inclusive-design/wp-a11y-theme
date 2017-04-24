@@ -42,14 +42,6 @@ function a11y_theme_options_page () {
     <section class="a11y-admin">
         <h1>a11y Theme Options</h1>
 
-        <!-- <h2>Front Page Descriptive Text</h2>
-        <p>To change this text, go to Dashboard > "Settings" > "General".</p>
-        <blockquote> -->
-        <?php
-        //echo get_bloginfo ('description');
-        ?>
-        <!-- </blockquote> -->
-
         <form action="options.php" method="POST">
             <?php
             settings_fields('a11y-theme-settings-group');
@@ -91,10 +83,6 @@ function site_text_field_callback($text_field) {
     $field = "site_text_".$text_field;
     $value = $settings[$field];
 
-    // echo $value;
-    //
-    // wp_editor($value, $field);
-
     echo "<textarea name='a11y-theme-settings[$field]' rows='5' cols='40' />".$value."</textarea>";
 }
 
@@ -128,20 +116,6 @@ function a11y_theme_settings_validate ($input) {
     // Sanitize the Tagline and Footer text areas for allowed HTML.
     $output['site_text_tagline'] = wp_kses_post($input['site_text_tagline']);
     $output['site_text_footer'] = wp_kses_post($input['site_text_footer']);
-
-//
-// if(isset($_POST['settings_wpeditor']) && isset($_POST['nonce_field']) && wp_verify_nonce($_POST['nonce_field'], 'nonce_action') ){
-//     update_option('my_content', wp_kses_post($_POST['settings_wpeditor']));
-//     }
-// }
-    // check_admin_referer( 'site_text_tagline' );
-    // check_admin_referer( 'site_text_footer' );
-
-    //
-    // if (isset($input['site_text_tagline'])){
-        // $output['site_text_tagline'] = wp_kses_post($input['site_text_tagline']);
-        //$output['site_text_tagline'] = $input['site_text_tagline'];
-    // }
 
     // Validate the other fields.
     for ($panel_number = 1; $panel_number <= 3; $panel_number++) {
