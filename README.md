@@ -2,6 +2,8 @@
 
 An accessible, responsive Wordpress theme created by the Floe Project. The theme features a static front page which displays a prominent description, and three content panels. The main navigation can display content landing pages, giving visitors a spot to orient themselves before diving deeper into the content.
 
+[http://bigidea.one](http://bigidea.one) is an example of a site using this theme.
+
 ## Under Development
 
 This theme is still under development. We intend to make improvements over time to make the configuration and use of this theme easier. For example:
