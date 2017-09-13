@@ -52,7 +52,7 @@ get_sidebar();
         <section>
             <article>
                 <div class="a11y-entry-content">
-                    <?php echo $category_landing_content; ?>
+                    <?php echo apply_filters('the_content', $category_landing_content); //do_shortcode ($category_landing_content); ?>
                 </div>
             </article>
         <?php if (empty ($category_landing_id)) {

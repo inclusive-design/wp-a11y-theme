@@ -10,6 +10,7 @@ License URI:
 Text Domain: a11y
 Tags: accessibility
 */
+/* foo */
 @font-face {
   font-family: "Muli";
   src: url("fonts/Muli-Regular.ttf") format("truetype");
@@ -705,4 +706,3 @@ html {
     background-repeat: no-repeat;
   }
 }
-

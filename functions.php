@@ -5,6 +5,7 @@
  */
 
 if ( ! function_exists( 'a11y_setup' ) ) :
+
 /**
  * Sets up theme defaults and registers support for various WordPress features.
  */

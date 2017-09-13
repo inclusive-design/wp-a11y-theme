@@ -6,7 +6,6 @@
  *
  * @package a11y
  */
-
 get_header(); ?>
 
     <main id="content" class="a11y-site-main small-12 columns">
@@ -20,13 +19,6 @@ get_header(); ?>
                 get_search_form();
 
                 the_widget( 'WP_Widget_Recent_Posts' );
-
-                // Only show the widget if site has multiple categories.
-                if ( a11y_categorized_blog() ) :
-            ?>
-
-            <?php
-                endif;
 
                 // Uncomment to add these Widgets to the 404 page.
                 // $archive_content = '<p>' . sprintf( esc_html__( 'Try looking in the monthly archives. %1$s', 'a11y' )) . '</p>';
