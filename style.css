@@ -1,16 +1,16 @@
 /*
-Theme Name: a11y-0.0.3
+Theme Name: a11y-0.0.4
 Theme URI:
 Author: Floe Project
 Author URI: http://floeproject.org/
 Description: Accessible theme <code>a11y</code>
-Version: 0.0.3
+Version: 0.0.4
 License:
 License URI:
 Text Domain: a11y
 Tags: accessibility
 */
-/* foo */
+
 @font-face {
   font-family: "Muli";
   src: url("fonts/Muli-Regular.ttf") format("truetype");
