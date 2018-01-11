@@ -17,20 +17,20 @@ get_header(); ?>
         <section class="row a11y-panel-container">
             
             <?php
-                if (is_active_sidebar('panel1')) {
-                    dynamic_sidebar('panel1');
+                if (is_active_sidebar('a11y-front-panel1')) {
+                    dynamic_sidebar('a11y-front-panel1');
                 }
             ?>
 
             <?php
-                if (is_active_sidebar('panel2')) {
-                    dynamic_sidebar('panel2');
+                if (is_active_sidebar('a11y-front-panel2')) {
+                    dynamic_sidebar('a11y-front-panel2');
                 }
             ?>
 
             <?php
-                if (is_active_sidebar('panel3')) {
-                    dynamic_sidebar('panel3');
+                if (is_active_sidebar('a11y-front-panel3')) {
+                    dynamic_sidebar('a11y-front-panel3');
                 }
             ?>
         </section>
