@@ -1,12 +1,12 @@
-/*!
-Theme Name: a11y-0.0.4
+/*
+Theme Name: Floe Accessible Wordpress Theme
 Theme URI:
 Author: Floe Project
 Author URI: http://floeproject.org/
-Description: Accessible theme <code>a11y</code>
-Version: 0.0.4
-License:
-License URI:
+Description: An accessible Wordpress theme made by the Floe Project.
+Version: 0.0.5
+License: New BSD license or the Educational Community License, Version 2.0
+License URI: https://github.com/fluid-project/infusion/raw/master/Infusion-LICENSE.txt
 Text Domain: a11y
 Tags: accessibility
 */
@@ -34,7 +34,7 @@ header-color ?= #7A2344;
 body-background ?= #fff;
 corner-flourish-color ?= #AD3362;
 
-/* Masthead colours */
+// Masthead colours
 masthead-background ?= #fff;
 masthead-color ?= #00303C;
 masthead-color-hover ?= #fff;
@@ -46,7 +46,7 @@ main-nav-link-color-hover ?= #fff;
 main-nav-link-background-hover ?= #00303C;
 main-nav-link-focus ?= 0.2rem solid #00303C;
 
-/* Sidebar */
+// Sidebar
 sidebar-color ?= #fff;
 sidebar-background ?= #006274;
 sidebar-link-color ?= #fff;
@@ -54,23 +54,23 @@ sidebar-link-background-hover ?= #fff;
 sidebar-link-color-hover ?= #006274;
 sidebar-link-focus ?= 0.2rem solid #fff;
 
-/* Front Main Content Area */
+// Front Main Content Area
 front-main-content-link-color ?= #006274;
 front-main-content-link-hover-background ?= #006274;
 front-main-content-link-hover ?= #fff;
 front-main-content-link-focus ?= 0.2rem solid #006274;
 
-/* Main Content Area for all other pages */
+// Main Content Area for all other pages
 main-content-border ?= 1.6rem solid #ECEDED;
 main-content-background ?= #fff;
 main-content-color ?= #000;
 main-content-link-color ?= #AD3362;
 
-/* Front Page Panels */
+// Front Page Panels
 front-panel-container-background ?= #ECEDED;
 front-panel-background ?= #fff;
 
-/* Skip Links */
+// Skip Links
 skip-color ?= #006274;
 skip-background ?= #ECEDED;
 skip-focus-outer-border ?= #006274;
@@ -78,7 +78,7 @@ skip-focus-inner-border ?= #ECEDED;
 skip-hover-color ?= #ECEDED;
 skip-hover-background ?= #006274;
 
-/* Front Page Footer */
+// Front Page Footer
 front-footer-background ?= #006274;
 front-footer-color ?= #fff;
 front-footer-link-color ?= #fff;
@@ -86,7 +86,7 @@ front-footer-link-hover-background ?= #fff;
 front-footer-link-hover ?= #006274;
 front-footer-link-focus ?= 0.2rem solid #fff;
 
-/* Sub Page Footer */
+// Sub Page Footer
 footer-background ?= #00303C;
 footer-color ?= #fff;
 footer-link-color ?= #fff;
@@ -94,12 +94,12 @@ footer-link-hover-background ?= #fff;
 footer-link-hover ?= #00303C;
 footer-link-focus ?= 0.2rem solid #fff;
 
-/* Site description */
+// Site description
 site-tagline-color ?= #fff;
 site-tagline-emphasis ?= #FCC076;
 site-tagline-background-image ?= "./images/pen-idea-bulb-paper.png";
 
-/* Mixins */
+// Mixins
 apply-contrast-sidebar-images(foreground fileSuffix) {
     .a11y-site-aside {
         background-image: url("./images/sidebar-graphic-"+fileSuffix+"-01.svg");
@@ -262,9 +262,10 @@ html {
 .a11y-site-header {
     background-color: masthead-background;
     margin-top: 1.2rem;
+    // override Foundation's padding.
     padding-bottom: 1rem;
     padding-left: 0;
-    padding-right: 0; // override Foundation's padding.
+    padding-right: 0;
 
     .a11y-site-title {
         margin: 0;
@@ -378,14 +379,14 @@ html {
     }
 }
 
-// Main - Front Page
+/* Main - Front Page */
 .home .a11y-site-main {
     background-color: front-main-content-background;
     padding: 0;
     overflow-x: hidden;
 }
 
-// Main - All other pages.
+/* Main - All other pages. */
 .category,
 .single {
     main {

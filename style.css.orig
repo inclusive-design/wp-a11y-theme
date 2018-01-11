@@ -1,4 +1,14 @@
 /*
+<<<<<<< HEAD
+Theme Name: a11y-0.0.4
+Theme URI:
+Author: Floe Project
+Author URI: http://floeproject.org/
+Description: Accessible theme <code>a11y</code>
+Version: 0.0.4
+License:
+License URI:
+=======
 Theme Name: Floe Accessible Wordpress Theme
 Theme URI:
 Author: Floe Project
@@ -7,6 +17,7 @@ Description: An accessible Wordpress theme made by the Floe Project.
 Version: 0.0.5
 License: New BSD license or the Educational Community License, Version 2.0
 License URI: https://github.com/fluid-project/infusion/raw/master/Infusion-LICENSE.txt
+>>>>>>> foundation
 Text Domain: a11y
 Tags: accessibility
 */
@@ -24,6 +35,19 @@ Tags: accessibility
   src: url("fonts/Muli-ExtraBold.ttf") format("truetype");
   font-weight: 800;
 }
+<<<<<<< HEAD
+/* Masthead colours */
+/* Sidebar */
+/* Front Main Content Area */
+/* Main Content Area for all other pages */
+/* Front Page Panels */
+/* Skip Links */
+/* Front Page Footer */
+/* Sub Page Footer */
+/* Site description */
+/* Mixins */
+=======
+>>>>>>> foundation
 /* Styles for specific SVG images. */
 #corner-flourish {
   display: none;
@@ -196,13 +220,19 @@ html {
     padding: 0.7rem 0.8rem;
   }
 }
+<<<<<<< HEAD
+=======
 /* Main - Front Page */
+>>>>>>> foundation
 .home .a11y-site-main {
   background-color: front-main-content-background;
   padding: 0;
   overflow-x: hidden;
 }
+<<<<<<< HEAD
+=======
 /* Main - All other pages. */
+>>>>>>> foundation
 .category main,
 .single main {
   border: none;
@@ -260,8 +290,12 @@ html {
   text-transform: none;
 }
 .a11y-front-panel h1,
+<<<<<<< HEAD
 .a11y-front-panel section,
 .a11y-front-panel .textwidget {
+=======
+.a11y-front-panel section {
+>>>>>>> foundation
   padding: 0.5rem 1.5rem;
 }
 /* Site Sidebar (appears on all other pages, except front page) */

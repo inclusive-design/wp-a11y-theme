@@ -27,27 +27,32 @@ global $category_landing_id;
         if ($sidebar_query->have_posts()) :
 
             /*
-            If there are more than 1 post in the current category,
-            then the first item should be a link to the category.
-
-            Otherwise if there's just 1 post, then it can be ignore as it
-            will be the landing page already being shown.
+            If there's just 1 post, then show just the Feedback link.
             */
-            if ($sidebar_query->found_posts > 1) :?>
+            if ($sidebar_query->found_posts == 1) : ?>
+                <ul>
+                <?php
+                get_template_part( 'template-parts/sidebar', $category_current[0]->slug ); ?>
+                </ul>
+            <?php
+            /*
+            If there are more than 1 post in the current category,
+            then list them in the sidebar, and indicate the active page.
+            */
+            elseif ($sidebar_query->found_posts > 1) :?>
                 <ul>
                     <li><a href="<?php echo $category_link; ?>" class="a11y-sidebar-category-link
                 <?php
+                /*
+                If showing the landing page, give it active styling.
+                */
                 if (! empty ($category_landing_id)) : ?>a11y-sidebar-current<?php endif;?>">
                     <?php
-                    /*
-                    if category_landing_id is not empty, then we are showing a
-                    landing page. Therefore give it active styling.
-                    */
                     echo $category_current[0]->name; ?></a></li>
 
                     <li>
                         <ul>
-                        <?php
+                        <?php get_template_part( 'template-parts/sidebar', $category_current[0]->slug );
                         while ( $sidebar_query->have_posts() ) : $sidebar_query->the_post();
                             /*
                             Display all pages in the category as a list of links.
