@@ -31,7 +31,7 @@ if (function_exists('register_sidebar')) {
 	));
 }
 
-/* Add widget to page 
+/* Add widget to page
    @param array $sections Nested array that holds the name of the section, its classes and the widgets it contains
    @param string $el_name Name of the element
 */

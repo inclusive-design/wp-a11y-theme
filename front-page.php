@@ -15,7 +15,7 @@ get_header(); ?>
             </p>
         </div>
         <section class="row a11y-panel-container">
-            
+
             <?php
 
                 $sections = array(
@@ -24,7 +24,7 @@ get_header(); ?>
                         'widgets' => array(
                             'panel1' => 'a11y-front-panel1',
                             'panel2' => 'a11y-front-panel2',
-                            'panel3' => 'a11y-front-panel3m'
+                            'panel3' => 'a11y-front-panel3'
                         )
                     )
                 );
