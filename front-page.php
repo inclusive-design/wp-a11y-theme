@@ -17,23 +17,22 @@ get_header(); ?>
         <section class="row a11y-panel-container">
             
             <?php
-                if (is_active_sidebar('a11y-front-panel1')) {
-                    dynamic_sidebar('a11y-front-panel1');
-                }
+
+                $sections = array(
+                    'panels' => array(
+                        'section_class' => 'row a11y-panel-container',
+                        'widgets' => array(
+                            'panel1' => 'a11y-front-panel1',
+                            'panel2' => 'a11y-front-panel2',
+                            'panel3' => 'a11y-front-panel3m'
+                        )
+                    )
+                );
+
+                add_widgets($sections, 'section');
             ?>
 
-            <?php
-                if (is_active_sidebar('a11y-front-panel2')) {
-                    dynamic_sidebar('a11y-front-panel2');
-                }
-            ?>
-
-            <?php
-                if (is_active_sidebar('a11y-front-panel3')) {
-                    dynamic_sidebar('a11y-front-panel3');
-                }
-            ?>
-        </section>
+       </section>
 
     </main>
 
