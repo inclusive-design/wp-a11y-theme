@@ -31,4 +31,23 @@ if (function_exists('register_sidebar')) {
 	));
 }
 
+/* Add widget to page 
+   @param array $sections Nested array that holds the name of the section, its classes and the widgets it contains
+   @param string $el_name Name of the element
+*/
+function add_widgets($sections, $el_name) {
+    foreach($sections as $section) {
+
+        echo '<' . $el_name . ' class="' . $section['section_class'] . '">';
+        if (!empty($section['widgets'])) {
+	        foreach($section['widgets'] as $widget) {
+	            if (is_active_sidebar($widget)) {
+	                dynamic_sidebar($widget);
+	            }
+        	}
+        }
+        echo '</'. $el_name . '>';
+    };
+}
+
 ?>
