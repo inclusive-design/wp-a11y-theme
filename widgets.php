@@ -3,32 +3,35 @@
  * a11y widgets for front page.
  */
 
-if (function_exists('register_sidebar')) {
+$front_panels = array(
+	'a11y-front-panel1' => array(
+		'name' => __( 'Front Panel 1', 'a11y-front-panel' ),
+        'id' => 'a11y-front-panel1',
+        'before_widget' => '<div id="%1$s" class="small-12 medium-4 columns a11y-front-panel">',
+        'after_widget' => '</div>',
+        'before_title' => '<h2>',
+        'after_title' => '</h2>'
+	),
+	'a11y-front-panel2' => array(
+		'name' => __( 'Front Panel 1', 'a11y-front-panel' ),
+        'id' => 'a11y-front-panel2',
+        'before_widget' => '<div id="%1$s" class="small-12 medium-4 columns a11y-front-panel">',
+        'after_widget' => '</div>',
+        'before_title' => '<h2>',
+        'after_title' => '</h2>'
+	),
+	'a11y-front-panel3' => array(
+		'name' => __( 'Front Panel 1', 'a11y-front-panel' ),
+        'id' => 'a11y-front-panel3',
+        'before_widget' => '<div id="%1$s" class="small-12 medium-4 columns a11y-front-panel">',
+        'after_widget' => '</div>',
+        'before_title' => '<h2>',
+        'after_title' => '</h2>'
+	)
+);
 
-	register_sidebar(array(
-		'name' => 'Front Panel 1',
-		'id'   => 'a11y-front-panel1',
-		'before_widget' => '<div id="%1$s" class="small-12 medium-4 columns a11y-front-panel">',
-		'after_widget'  => '</div>',
-		'before_title'  => '<h2 class="a11y-panel-header">',
-		'after_title'   => '</h2>'
-	));
-	register_sidebar(array(
-		'name' => 'Front Panel 2',
-		'id'   => 'a11y-front-panel2',
-		'before_widget' => '<div id="%1$s" class="small-12 medium-4 columns a11y-front-panel">',
-		'after_widget'  => '</div>',
-		'before_title'  => '<h2 class="a11y-panel-header">',
-		'after_title'   => '</h2>'
-	));
-	register_sidebar(array(
-		'name' => 'Front Panel 3',
-		'id'   => 'a11y-front-panel3',
-		'before_widget' => '<div id="%1$s" class="small-12 medium-4 columns a11y-front-panel">',
-		'after_widget'  => '</div>',
-		'before_title'  => '<h2 class="a11y-panel-header">',
-		'after_title'   => '</h2>'
-	));
+foreach ($front_panels as $value) {
+    register_sidebar($value);
 }
 
 /* Add widget to page
