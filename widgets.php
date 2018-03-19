@@ -13,7 +13,7 @@ $front_panels = array(
         'after_title' => '</h2>'
 	),
 	'a11y-front-panel2' => array(
-		'name' => __( 'Front Panel 1', 'a11y-front-panel' ),
+		'name' => __( 'Front Panel 2', 'a11y-front-panel' ),
         'id' => 'a11y-front-panel2',
         'before_widget' => '<div id="%1$s" class="small-12 medium-4 columns a11y-front-panel">',
         'after_widget' => '</div>',
@@ -21,7 +21,7 @@ $front_panels = array(
         'after_title' => '</h2>'
 	),
 	'a11y-front-panel3' => array(
-		'name' => __( 'Front Panel 1', 'a11y-front-panel' ),
+		'name' => __( 'Front Panel 3', 'a11y-front-panel' ),
         'id' => 'a11y-front-panel3',
         'before_widget' => '<div id="%1$s" class="small-12 medium-4 columns a11y-front-panel">',
         'after_widget' => '</div>',
