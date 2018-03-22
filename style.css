@@ -69,13 +69,6 @@ html {
   z-index: 1;
 }
 /* UI Options. */
-.fl-prefsEditor-separatedPanel .fl-panelBar {
-  flex-flow: row wrap;
-  display: flex;
-  justify-content: flex-end;
-  background-color: inherit;
-  border-bottom: none;
-}
 .fl-prefsEditor-separatedPanel .fl-panelBar .fl-prefsEditor-buttons {
   margin-right: 5em;
 }
@@ -257,6 +250,13 @@ html {
   }
   .fl-prefsEditor-separatedPanel .fl-panelBar .fl-prefsEditor-buttons {
     margin-right: 10rem;
+  }
+  .fl-prefsEditor-separatedPanel .fl-panelBar.fl-panelBar-wideScreen {
+    flex-flow: row wrap;
+    display: flex;
+    justify-content: flex-end;
+    background-color: inherit;
+    border-bottom: none;
   }
   .a11y-site-header {
     margin-bottom: 0;

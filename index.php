@@ -15,6 +15,7 @@
 get_header(); ?>
 
     <main id="content" class="a11y-site-main small-12 columns">
+        <nav id="toc"></nav>
     <?php
     if ( have_posts() ) :
 

@@ -48,6 +48,7 @@ get_header();
 get_sidebar();
 ?>
     <main id="content" class="a11y-site-main columns">
+        <nav id="toc"></nav>
         <h1><?php echo $category_name ?></h1>
         <section>
             <article>

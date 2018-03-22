@@ -12,7 +12,7 @@ get_sidebar();
 ?>
 
     <main id="content" class="a11y-site-main columns">
-
+    
     <?php
     if ( have_posts() ) : ?>
 

@@ -7,6 +7,7 @@ $settings = (array) get_option ('a11y-theme-settings');
 get_header(); ?>
 
     <main id="content" class="a11y-site-main small-12 columns">
+        <nav id="toc"></nav>
         <div class="a11y-site-tagline">
             <p>
                 <?php
