@@ -182,7 +182,8 @@ html {
   text-transform: none;
 }
 .a11y-front-panel h1,
-.a11y-front-panel section {
+.a11y-front-panel section,
+.a11y-front-panel .textwidget {
   padding: 0.5rem 1.5rem;
 }
 /* Site Sidebar (appears on all other pages, except front page) */

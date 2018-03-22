@@ -63,6 +63,11 @@ function a11y_widgets_init() {
 add_action( 'widgets_init', 'a11y_widgets_init' );
 
 /**
+ * Register custom widgets for front page.
+ */
+if ($wp_version >= 2.8) require_once(TEMPLATEPATH.'/widgets.php');
+
+/**
  * Enqueue styles.
  */
 function a11y_styles() {
@@ -74,3 +79,4 @@ add_action( 'wp_enqueue_scripts', 'a11y_styles' );
  * Add the admin page for the theme.
  */
 require get_template_directory() . '/inc/theme-admin.php';
+
