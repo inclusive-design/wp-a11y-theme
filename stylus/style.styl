@@ -81,12 +81,7 @@ html {
 
 /* UI Options. */
 .fl-prefsEditor-separatedPanel .fl-panelBar {
-    flex-flow: row wrap;
-    display: flex;
-    justify-content: flex-end;
-    background-color: inherit;
-    border-bottom: none;
-
+  
     .fl-prefsEditor-buttons {
         margin-right: 5em;
     }
@@ -235,7 +230,7 @@ html {
         text-transform: none;
     }
 
-    h1, section {
+    h1, section, .textwidget {
         padding: 0.5rem 1.5rem;
     }
 }
@@ -316,6 +311,14 @@ html {
 
       .fl-prefsEditor-separatedPanel .fl-panelBar .fl-prefsEditor-buttons {
           margin-right: 10rem;
+      }
+
+      .fl-prefsEditor-separatedPanel .fl-panelBar.fl-panelBar-wideScreen {
+          flex-flow: row wrap;
+          display: flex;
+          justify-content: flex-end;
+          background-color: inherit;
+          border-bottom: none;
       }
 
      .a11y-site-header {
