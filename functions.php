@@ -74,3 +74,4 @@ add_action( 'wp_enqueue_scripts', 'a11y_styles' );
  * Add the admin page for the theme.
  */
 require get_template_directory() . '/inc/theme-admin.php';
+
