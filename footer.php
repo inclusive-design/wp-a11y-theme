@@ -19,10 +19,6 @@
            echo $footer_string;
             ?>
         </p>
-
-        <svg id="ontario-logo" role="presentation">
-            <use xlink:href="<?php bloginfo('template_url');?>/images/ontario-logo.svg#Layer_1" />
-        </svg>
     </footer>
 </div>
 
