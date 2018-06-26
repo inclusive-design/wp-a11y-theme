@@ -16,12 +16,19 @@ get_header(); ?>
         </div>
         <section class="row a11y-panel-container">
             <?php
-                $panels = array (
-                    esc_attr($settings['panel_1_id']) => esc_url($settings['panel_1_link']),
-                    esc_attr($settings['panel_2_id']) => esc_url($settings['panel_2_link']),
-                    esc_attr($settings['panel_3_id']) => esc_url($settings['panel_3_link'])
+
+                $sections = array(
+                    'panels' => array(
+                        'section_class' => 'row a11y-panel-container',
+                        'widgets' => array(
+                            'panel1' => 'a11y-front-panel1',
+                            'panel2' => 'a11y-front-panel2',
+                            'panel3' => 'a11y-front-panel3'
+                        )
+                    )
                 );
-                foreach ($panels as $key => $panel_link) {
+
+                add_widgets($sections, 'section');
             ?>
 
                 <a href="<?php echo $panel_link; ?>" class="small-12 medium-4 columns a11y-front-panel">
@@ -46,9 +53,6 @@ get_header(); ?>
 
                 </article>
             </a>
-            <?php
-        }//foreach
-            ?>
         </section>
 
     </main>

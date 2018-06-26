@@ -14,6 +14,8 @@ This theme is still under development. We intend to make improvements over time 
 
 # Installation
 
+Note: This theme requires Wordpress version 2.8 or later.
+
 1. Copy this theme into a sub-directory in your Wordpress `themes` directory.
 2. Download and install the [UI Options Wordpress plugin](https://github.com/fluid-project/uio-wordpress-plugin) into your Wordpress `plugins` directory. Note: This plugin is required.
 3. Activate the `a11y` theme.
