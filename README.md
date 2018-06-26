@@ -116,3 +116,7 @@ The Floe Project has used Foundation in many web projects and has found Foundati
 # About
 
 The `a11y` theme is created and maintained by the [FLOE Project](http://www.floeproject.org/).
+
+## License
+
+Portions of this theme is licensed under [ECL 2.0](https://opensource.org/licenses/ECL-2.0), [3-Clause BSD](https://opensource.org/licenses/BSD-3-Clause), and GNU General Public License v2.0 licenses.
